@@ -32,10 +32,8 @@ function Set-LocalUser
         -DisplayName "Sara Davis Laptop"
 
     .PARAMETER Enabled
-     Specifies if an account is enabled. An enabled account requires a 
-     password. This parameter sets the Enabled property for an account 
-     object. This parameter also sets the AccountDisabled flag.
-     Possible values for this parameter include:
+     Specifies if an account is enabled. This parameter  sets the 
+     AccountDisabled flag. Possible values for this parameter include:
         $false or 0
         $true or 1
 
@@ -52,8 +50,7 @@ function Set-LocalUser
 
     .PARAMETER PasswordNeverExpires
      Specifies whether the password of an account can expire. This 
-     parameter sets the PasswordNeverExpires property of an account object. 
-     This parameter also sets the DONT_EXPIRE_PASSWD flag. 
+     parameter sets the DONT_EXPIRE_PASSWD flag property of an account object. 
      
      Possible values for this parameter include:
         $false or 0
@@ -62,7 +59,6 @@ function Set-LocalUser
      The following example shows how to set this parameter so that the password 
      can expire.
         -PasswordNeverExpires:$false
-
 
     .PARAMETER CannotChangePassword
      Specifies whether the account password can be changed. This 
@@ -82,6 +78,27 @@ function Set-LocalUser
 
      The following example shows how to create a password as secure string.
         $SecStringPW = ConvertTo-SecureString -String "MyPassword" -AsPlainText -Force
+    
+    .PARAMETER Computername
+     Specifies Computer to connect to. 
+
+     The following example shows how to specify a full qualified domain name as the 
+     parameter value.
+        -Computername "srvwts001.contoso.com"
+
+    .PARAMETER Unlock
+     Specifies if an account can be unlocked.
+
+     The following example shows how to unlock a local user account.
+        -Unlock
+
+    .PARAMETER ResetAllFlags
+     Specifies if account options can be reset to the default settings (everything
+     unchecked).
+
+     The following example shows how to specify a full qualified domain name as the 
+     parameter value.
+        -ResetAllFlags
 
     .EXAMPLE
      Set-LocalUser -Identity Administrator -Enabled:$false
