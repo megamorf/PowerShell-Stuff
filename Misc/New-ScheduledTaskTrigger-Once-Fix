@@ -1,0 +1,2 @@
+# http://windowsserver.uservoice.com/forums/301869-powershell/suggestions/11190663-bug-scheduledtasks-module-broken-in-1511
+mofcomp C:\Windows\System32\wbem\SchedProv.mof
